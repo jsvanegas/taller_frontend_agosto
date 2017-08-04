@@ -67,19 +67,36 @@
 			<textarea name="observaciones" id="txtObservaciones" class="form-control"></textarea>
 		</div>
 
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
-			<button class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Presione para Guardar"><i class="glyphicon glyphicon-floppy-disk"></i> Guardar</button>
-			<button class="btn btn-danger"><i class="glyphicon glyphicon-remove-sign"></i> Cancelar</button>
+		<div id="botonera" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
+			<!-- botones para interfaz grande -->
+			<button class="btn-guardar btn btn-success hidden-xs" data-toggle="tooltip" data-placement="top" title="Presione para Guardar">
+				<i class="glyphicon glyphicon-floppy-disk"></i> Guardar
+			</button>
+			<button class="btn-cancelar btn btn-danger hidden-xs"><i class="glyphicon glyphicon-remove-sign"></i> Cancelar</button>
+			<!-- botones para interfaz grande -->
+
+
+			<!-- botones para interfaz pequeña -->
+			
+			<button class="btn-guadar btn btn-success btn-block hidden-sm hidden-md hidden-lg" data-toggle="tooltip" data-placement="top" title="Presione para Guardar">
+				<i class="glyphicon glyphicon-floppy-disk"></i> Guardar
+			</button>
+			<button class="btn-cancelar btn btn-danger btn-block hidden-sm hidden-md hidden-lg"><i class="glyphicon glyphicon-remove-sign"></i> Cancelar</button>
+
+			<!-- botones para interfaz pequeña -->
 		</div>
 
 	</div>
 	
 	<script>
-		/*
+		
 		$(function () {
-			$('[data-toggle="tooltip"]').tooltip()
-		})
-		*/
+			//$('[data-toggle="tooltip"]').tooltip()
+			$('#botonera .btn-guardar').on('click', function(){
+				//....
+			});
+		});
+		
 	</script>
 </body>
 </html>
