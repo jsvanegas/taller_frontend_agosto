@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Introducción a JS</title>
+</head>
+<body>
+	
+
+	<script>
+
+		/**tipos de dato de JS ***/
+		/*
+			Number
+			Boolean
+			String
+			Array
+			Object
+
+			----------
+
+			undefined -> se intenta acceder a una variable que no existe
+			NaN -> Not a Number
+			null -> enviar una variable vacía
+
+			---------
+
+			Conversión de tipos de dato
+
+			toString()
+			parseFloat()
+			parseInt()
+
+		*/
+
+
+		/*****estructuras de control********/
+		/*
+		if (x === 0) {
+			//dsadasdsa
+		}else{
+			//dsadasdsa
+		}
+
+		switch(y){
+			case 'a':
+
+			break;
+			case 'b':
+			
+			break;
+			default:
+
+			break;
+		}
+
+
+		for (var i = 0; i < arreglo.length; i++) {
+			//...
+		}
+
+		*/
+
+		var z = [3,2,43,455,6,7,8,9,9,12];
+
+		//var zx = new Array(3,412,21,2,12,1);
+
+		z.forEach(function(item, pos){
+			console.log(item, ' --- ', pos);
+		});
+
+		for (var i in z){
+			console.log(z[i]);
+		}
+
+
+		var spiderman = new Object();
+		spiderman.nombreReal = 'Peter Parker';
+		spiderman.editorial = 'Marvel Comics';
+
+		for(var prop in spiderman){
+			console.log(prop+': '+spiderman[prop]);
+		}
+
+		var superman = {     ///JSON
+			
+			nombreReal : 'Clark Kent',
+			editorial: 'DC Comics',
+			
+			enemigos:['Lex Luthor', 'Pakachu'],
+			
+			amigos:['Batman', 'Luisa Laine', '...'],
+
+			volar:function(){
+				//ya no va en notación JSON -> formato de JS normal
+				console.log('Volar');
+			},
+
+			derrotarEnemigo:function(pos){
+				var obtenerEnemigo = function(_pos){
+					return superman.enemigos[_pos];
+				} 
+
+				return 'Superman acaba de derrotar a '+obtenerEnemigo(pos);
+			}
+			
+		};
+
+		//Cuenta los valores que sean numéricos y pares dentro de un arreglo
+		Array.prototype.contarPares = function() {
+			var cont = 0;
+			for (var i = 0; i < this.length; i++) {
+				if( !isNaN(this[i]) && this[i]%2===0 ){
+					cont++;
+				}
+			}
+			return cont;
+		};
+
+		String.prototype.pasarMayusculas = function(){
+			return this.toUpperCase();	
+		};
+
+		
+		//ECMA5 (la versión de JS)
+		//POO: Clases -> instancias de una clase = Objetos
+		//POPrototipos: Prototipo -> instanciar un prototipo | puede usar el prototipo	
+
+
+		//prototipo
+		var Persona = function(nombre, edad){
+			this.nombre = nombre;
+			this.edad = edad;
+		}
+
+		Persona.prototype.saludar = function(nom) {
+			if (nom === undefined) {
+				console.log('Hola mi nombre es '+this.nombre);
+			}else{
+				console.log('Hola mi nombre es '+nom);
+			}
+		};
+
+		var persona = new Persona('Milena', 40);
+		persona.saludar(); // --> OK
+
+
+
+
+		function sumar(){
+			//----
+		}
+
+		var sumar = function(){
+			//----
+		}
+
+		var calc = {
+
+			sumar:function(){
+				//-----
+			}
+
+		}
+
+		Number.prototype.sumar = function() {
+			// ----
+		};
+
+
+
+
+
+
+
+
+		//ECMA6 (la versión actual de JS)
+		//POO -> REAL -> Clases, herencia
+
+	</script>
+
+</body>
+</html>

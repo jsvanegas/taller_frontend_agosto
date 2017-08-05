@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplos de Selectores</title>
+	
+	<style>
+		
+		/*
+		
+		[1 (más importante)] ID: Busca un elemento con el atributo id="X"  -> #
+		[2] CLASE: Buscan todos los elementos con la clase "X" -> .nombre-clase
+		[3 (menos importante)] ETIQUETA: Buscan todas las etiquetas del mismo tipo -> nombre_etiqueta ej: input { ... }
+
+		*/
+
+
+		div { /* busca todas las etiquetas div y aplica estas propiedades */
+			border:solid 1px #999;
+			height: 20px;
+			width: 50%;
+		}
+
+		.div-con-margen{
+			margin:10px 0px; 
+			/* 10px: aplica en todos los lados | 10px 5px: 10 px arriba y abajo; 5 pixeles izq y der | 10px 5px 15px 4px -> como las manecillas del reloj   */
+		}
+
+		.div-sin-margen{
+			margin:0px 0px !important;
+		}
+
+		#div_con_margen{
+			margin:40px 0px !important; /*No se recomienda usar el !important de forma continua*/
+		}
+		
+
+
+	</style>
+
+
+
+</head>
+<body>
+
+
+	<div></div>
+	
+	<div id="div_con_margen" class="div-sin-margen div-con-margen"></div>
+
+	<div></div>
+	
+	<div class="div-con-margen"></div>
+
+	<div></div>
+	
+	<div class="div-con-margen"></div>
+
+	<div></div>
+	
+	<div class="div-con-margen"></div>
+
+	<div></div>
+	
+	<div class="div-con-margen"></div>
+
+
+	
+
+
+	
+</body>
+</html>
