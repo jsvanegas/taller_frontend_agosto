@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Introducción a jQuery</title>
+	
+	<script src="jquery-3.2.1.min.js"></script>
+	
+	<style>
+		.caja-nueva{
+			display: block;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+		
+	<div class="par"></div>
+	<div></div>
+	<div class="par"></div>
+	<div></div>
+	<div class="par"></div>
+	<div></div>
+	<div class="par"></div>
+	<div></div>
+	<div class="par"></div>
+	<div></div>
+
+	<div>
+		<input type="text">
+		<input type="text">
+		<input type="text">
+		<input type="text">
+		<input type="text">
+		<button id="btnAsignar">Asignar valores</button>
+	</div>
+
+	<hr>
+
+	<div id="ejercicio1">
+		<button id="btnAgregarCaja">Agregar Caja</button>
+	</div>
+
+
+	<script>
+
+	var divPares = $('div.par').css({ border:'solid 1px #444', height:20, width:100});
+
+	var inputs = $('input').val('Valor de prueba');
+	console.log(inputs);
+
+	//$('#btnAsignar').bind('click', btnAsignarClick); --> DEPRECATED
+	//$('#btnAsignar').live('click', btnAsignarClick); --> DEPRECATED
+	//$('#btnAsignar').click(btnAsignarClick);  --> Invoca al método ON
+
+	/**
+	Ejemplo de muchos callbacks aninados, no es recomendable
+	$('#btnAsignar').on('click', function(){
+		$.get('url', function(data){
+			$(data).find('button').on('click', function(){
+				//hacer algo
+			});
+		})
+	});
+	*/
+
+	//document.getElementById('btnAsignar').addEventListener('click', btnAsignarClick);
+	/*
+	function configurarEvento(){
+		console.log('Ejecución del método configurarEvento');
+		var fx = function(){
+			console.log('Función que se ejecuta con el click');
+		}
+		return fx;
+	}
+	*/
+
+	$('#btnAsignar').on('click', btnAsignarClick);
+
+	function btnAsignarClick(){
+
+	}
+
+	$('#btnAgregarCaja').on('click', agregarCaja);
+
+	function agregarCaja(){
+		var input = $('<input>').addClass('caja-nueva');
+		$('#ejercicio1').append(input);
+	}
+
+	/*
+	for (var i = 0; i < divPares.length; i++) {
+
+		$(divPares[i])
+			.css('border', 'solid 1px #444')
+			.css('height', 20)
+			.css('width', '100px');
+	}
+	*/
+
+	</script>
+</body>
+</html>
