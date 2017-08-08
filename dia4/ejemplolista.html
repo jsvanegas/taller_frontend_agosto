@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplo de Lista</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		
+		#lista{
+			width: 400px;
+			border:solid 1px #999;
+		}
+
+		.producto{
+			height: 150px;
+			border-bottom: solid 1px #999
+		}
+
+		.producto span{
+			font-size: 11px;
+			color:#F90;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div id="lista">
+		
+	</div>
+
+	<table id="tblProductos">
+		<thead>
+			<tr>
+				<th id="thNombre">Nombre</th>
+				<th id="thPrecio">Precio</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+
+	<script>
+		
+		var productos = [
+			{id:1, nombre:'Balón Golty', precio:120000},
+			{id:2, nombre:'Raqueta de Tenis Wilson', precio:450000},
+			{id:3, nombre:'Pelotas de Golf', precio:120000},
+			{id:4, nombre:'Balón de Basket', precio:120000},
+			{id:5, nombre:'Balón Volley', precio:120000},
+			{id:6, nombre:'Balón Fútbol Américano', precio:120000},
+			{id:7, nombre:'Pelota de Baseball', precio:120000},
+		];
+
+		for (var i = 0; i < productos.length; i++) {
+			var producto = productos[i];
+			//var item = crearProducto(producto);
+			//$('#lista').append(item);
+
+			var fila = crearFila(producto);
+			$('#tblProductos tbody').append(fila);
+		}
+
+		function crearProducto(prod){
+			var div = $('<div>').addClass('producto');
+			var nombre = $('<p>').text(prod.nombre);
+			var precio = $('<span>').text(prod.precio);
+			div.append(nombre, precio);
+			return div;
+		}
+
+		function crearFila(prod){
+			var tr = $('<tr>');
+			var tdNombre = $('<td>').attr('headers', 'thNombre').text(prod.nombre);
+			var tdPrecio = $('<td>').attr('headers', 'thPrecio').text(prod.precio);
+			return tr.append(tdNombre, tdPrecio);
+		}
+
+
+
+	</script>
+
+</body>
+</html>

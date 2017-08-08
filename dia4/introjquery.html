@@ -88,6 +88,38 @@
 		$('#ejercicio1').append(input);
 	}
 
+
+	$('<button>').text('Sumar').appendTo('#ejercicio1').on('click', OperarValores);
+	$('<button>').text('Multiplicar').appendTo('#ejercicio1').on('click', OperarValores);
+
+	function OperarValores(evento){
+		// $(this) hace referencia a la propiedad currentTarget del evento
+		/*
+		console.log( evento );
+		console.log( evento.currentTarget );
+		console.log( $(this) );
+		*/
+		if( $(this).text() === 'Sumar' ){
+			var op = '+';
+			var valor = 0;	
+		}else{
+			var op = '*';
+			var valor = 1;	
+		}
+		
+		$('.caja-nueva').each(function(i, item){
+			//$(item) == $(this) --> se refiere al objeto sobre el cual se está ejecutando la función
+			var txt = $(this);
+			txt.css('backgroud-color', '#DEF');
+			if (op==='+') {
+				valor += parseInt( txt.val() );			
+			}else{
+				valor *= parseInt( txt.val() );			
+			}
+		});
+		console.log('Valor: ', valor);
+	}
+
 	/*
 	for (var i = 0; i < divPares.length; i++) {
 
