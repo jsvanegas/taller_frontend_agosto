@@ -43,23 +43,50 @@
 	</table>
 
 	<script id="tplProducto" type="text/x-handlebars-template">
+		{{#each productos}}
 		<div class="producto">
-			<p>{{nombre}} - {{categoria}}</p>
-			<span>{{precio}}</span>
+			<p>{{this.nombre}} - {{this.categoria}}</p>
+			<span>{{this.precio}}</span>
+			<span>{{siCero this.cantidad 'No hay unidades disponibles'}}</span>
 		</div>
+		{{/each}}
 	</script>
 	
+
+
 	<script>
+
+		/*
+		{{#if this.cantidad}}
+			<span>Cantidad: {{this.cantidad}}</span>
+			{{else}}
+			<i>No hay unidades disponibles</i>
+		{{/if}}
+		*/
+
+
+		Handlebars.registerHelper('siCero', function (v1, mensaje) {
+		    if (v1 <= 0) {
+		        return mensaje;
+		    }
+		    return v1;
+		});
 		
 		var productos = [
-			{id:1, categoria:'Deportes', nombre:'Balón Golty', precio:120000},
-			{id:2, categoria:'Deportes', nombre:'Raqueta de Tenis Wilson', precio:450000},
-			{id:3, categoria:'Deportes', nombre:'Pelotas de Golf', precio:120000},
-			{id:4, categoria:'Deportes', nombre:'Balón de Basket', precio:120000},
-			{id:5, categoria:'Deportes', nombre:'Balón Volley', precio:120000},
-			{id:6, categoria:'Deportes', nombre:'Balón Fútbol Américano', precio:120000},
-			{id:7, categoria:'Deportes', nombre:'Pelota de Baseball', precio:120000},
+			{id:1, cantidad:10, categoria:'Deportes', nombre:'Balón Golty', precio:120000},
+			{id:2, cantidad:0, categoria:'Deportes', nombre:'Raqueta de Tenis Wilson', precio:450000},
+			{id:3, cantidad:10, categoria:'Deportes', nombre:'Pelotas de Golf', precio:120000},
+			{id:4, cantidad:10, categoria:'Deportes', nombre:'Balón de Basket', precio:120000},
+			{id:5, cantidad:10, categoria:'Deportes', nombre:'Balón Volley', precio:120000},
+			{id:6, cantidad:-5, categoria:'Deportes', nombre:'Balón Fútbol Américano', precio:120000},
+			{id:7, cantidad:10, categoria:'Deportes', nombre:'Pelota de Baseball', precio:120000},
 		];
+
+		var tpl = $('#tplProducto').html();
+		var template = Handlebars.compile(tpl);
+		$('#lista').append(template({productos:productos}));
+
+		/*
 
 		for (var i = 0; i < productos.length; i++) {
 			var producto = productos[i];
@@ -79,8 +106,8 @@
 			var precio = $('<span>').text(prod.precio);
 			div.append(nombre, precio);
 			return div;
-			*/
 		}
+		*/
 
 		function crearFila(prod){
 			var tr = $('<tr>');
