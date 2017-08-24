@@ -38,6 +38,8 @@
         </div>
         <button id="btnGuardar" class="btn btn-success">Guardar</button>
     </div>
+
     <script src="js/app/index.js"></script>
+
 </body>
 </html>

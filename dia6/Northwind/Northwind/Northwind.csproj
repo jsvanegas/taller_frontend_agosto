@@ -93,10 +93,17 @@
   <ItemGroup>
     <Content Include="css\terceros\bootstrap-datepicker.min.css" />
     <Content Include="css\terceros\font-awesome.min.css" />
+    <Content Include="css\terceros\sweetalert.css" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="js\app\index.js" />
+    <Content Include="js\app\ordenes\ordenes.control.js" />
+    <Content Include="js\app\ordenes\ordenes.modelo.js" />
+    <Content Include="js\app\ordenes\ordenes.vista.js" />
+    <Content Include="js\lib\bootstrap-datepicker.min.js" />
     <Content Include="js\lib\jquery-3.2.1.min.js" />
+    <Content Include="js\lib\sweetalert.min.js" />
+    <Content Include="ordenes.aspx" />
     <Content Include="persistencia\NorthwindModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>NorthwindModel.edmx</DependentUpon>
@@ -122,7 +129,17 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ordenes.aspx.cs">
+      <DependentUpon>ordenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ordenes.aspx.designer.cs">
+      <DependentUpon>ordenes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="persistencia\Categories.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="persistencia\Customers.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
     <Compile Include="persistencia\Employees.cs">

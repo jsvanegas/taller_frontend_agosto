@@ -70,7 +70,8 @@ namespace Northwind.Controllers
         [Route("categorias/actualizar")]
         public string actualizarCateogria(FormDataCollection parametros)
         {
-            var categoria = new Categories() {
+            var categoria = new Categories()
+            {
                 CategoryID = int.Parse(parametros["CategoryID"]),
                 CategoryName = parametros["CategoryName"],
                 Description = parametros["Description"]
